@@ -1,0 +1,176 @@
+import React from "react";
+import {
+  Home,
+  LayoutGrid,
+  DoorOpen,
+  Scan,
+  Layers,
+  Landmark,
+  Plus,
+  ChevronRight,
+} from "lucide-react";
+
+const tools = [
+  { id: "window", label: "WINDOW", icon: LayoutGrid },
+  { id: "door", label: "DOOR", icon: DoorOpen, active: true },
+  { id: "fascia", label: "FASCIA\nRAKE", icon: Layers },
+  { id: "parapet", label: "PARAPET\nFLASHING", icon: Landmark },
+  { id: "more", label: "MORE", icon: Home },
+];
+
+export default function BendProPage() {
+  return (
+    <div className="min-h-screen bg-[#1a1a1a]">
+      <div className="relative min-h-screen bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.08),_transparent_55%)]">
+        <div className="mx-auto flex min-h-screen max-w-6xl items-center justify-center px-6 py-10">
+          <div className="w-full max-w-sm">
+            <div className="relative rounded-[36px] bg-[#101010] p-3 shadow-screen">
+              <div className="relative overflow-hidden rounded-[28px] bg-black">
+                <div className="absolute inset-0">
+                  <div className="h-[54%] bg-[linear-gradient(180deg,_rgba(80,80,80,0.6)_0%,_rgba(20,20,20,0.9)_100%)]" />
+                  <div className="h-[46%] bg-[#0d0d0d]" />
+                  <div className="absolute left-1/2 top-[18%] h-[46%] w-[78%] -translate-x-1/2 rounded-2xl border border-white/10 bg-[linear-gradient(135deg,_rgba(70,70,70,0.7),_rgba(40,40,40,0.25))]">
+                    <div className="absolute inset-x-0 top-0 h-8 rounded-t-2xl bg-black/30" />
+                    <div className="absolute left-1/2 top-1/2 h-[55%] w-[78%] -translate-x-1/2 -translate-y-[38%] rounded-xl border border-white/10 bg-white/10" />
+                  </div>
+                </div>
+
+                <div className="relative z-10 px-4 pt-3 text-[11px] text-white/85">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold">9:41</span>
+                    <div className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative z-10 flex items-center justify-between border-b border-white/10 px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <div className="grid h-9 w-9 place-items-center rounded-lg bg-black/60 ring-1 ring-white/15">
+                      <span className="text-lg font-semibold text-[#d0a33a]">RM</span>
+                    </div>
+                    <div className="leading-none">
+                      <div className="text-xl font-semibold tracking-wide text-white" style={{ fontFamily: "var(--font-oxanium)" }}>
+                        BendPro™
+                      </div>
+                      <div className="text-[10px] uppercase tracking-widest text-white/45">
+                        Execution Standard
+                      </div>
+                    </div>
+                  </div>
+                  <button className="grid h-9 w-9 place-items-center rounded-lg border border-[#f3c24f]/60 text-[#f3c24f]">
+                    <Plus className="h-4 w-4" />
+                  </button>
+                </div>
+
+                <div className="relative z-10 grid grid-cols-[64px_1fr]">
+                  <div className="flex flex-col items-center gap-2 border-r border-white/10 py-3">
+                    {tools.map((tool) => {
+                      const Icon = tool.icon;
+                      return (
+                        <button
+                          key={tool.id}
+                          className={`flex h-14 w-14 flex-col items-center justify-center gap-1 rounded-xl border text-[10px] font-semibold leading-tight transition ${
+                            tool.active
+                              ? "border-[#f3c24f] text-[#f3c24f] shadow-[0_0_14px_rgba(243,194,79,0.25)]"
+                              : "border-white/10 text-white/60"
+                          }`}
+                        >
+                          <Icon className="h-5 w-5" />
+                          <span className="whitespace-pre-line text-center" style={{ fontFamily: "var(--font-oxanium)" }}>
+                            {tool.label}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <div className="relative">
+                    <div className="px-4 pt-2 text-sm font-semibold tracking-wide text-white" style={{ fontFamily: "var(--font-oxanium)" }}>
+                      GARAGE DOOR
+                    </div>
+                    <div className="relative mt-3 h-[270px] px-4">
+                      <div className="absolute inset-x-8 top-6 h-0.5 border-t-2 border-dashed border-[#f3c24f]/80" />
+                      <div className="absolute left-7 top-5 h-3 w-3 rounded-sm bg-[#f3c24f]" />
+                      <div className="absolute right-7 top-5 h-3 w-3 rounded-sm bg-[#f3c24f]" />
+                      <div className="absolute left-1/2 top-0 -translate-x-1/2 text-xl font-semibold text-white">
+                        96 <span className="text-base text-white/80">in</span>
+                      </div>
+
+                      <div className="absolute left-8 top-6 h-[190px] w-0.5 border-l-2 border-dashed border-[#f3c24f]/80" />
+                      <div className="absolute left-7 bottom-12 h-3 w-3 rounded-sm bg-[#f3c24f]" />
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-xl font-semibold text-white">
+                        84 <span className="text-base text-white/80">in</span>
+                      </div>
+
+                      <div className="absolute bottom-12 right-8 h-0.5 border-t-2 border-dashed border-[#f3c24f]/80" />
+                      <div className="absolute bottom-10 right-7 h-3 w-3 rounded-sm bg-[#f3c24f]" />
+                      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-[10px] text-white/70">
+                        2in Calibration Marker
+                      </div>
+
+                      <div className="absolute bottom-8 right-10 grid h-10 w-10 place-items-center rounded-sm border border-white/30 bg-white/15">
+                        <div className="grid h-7 w-7 grid-cols-4 gap-px">
+                          {Array.from({ length: 16 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className={i % 3 === 0 ? "bg-white" : "bg-transparent"}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/10 bg-black/80 px-4 py-3">
+                      <div className="flex items-center justify-between">
+                        <div className="text-sm font-semibold" style={{ fontFamily: "var(--font-oxanium)" }}>
+                          GARAGE DOOR
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-white/60" />
+                      </div>
+                      <div className="mt-2 grid grid-cols-2 gap-2 text-[11px]">
+                        <div className="rounded-lg border border-white/10 bg-white/5 p-2">
+                          <div className="text-white/60">OPENING SIZE</div>
+                          <div className="mt-1 flex items-center justify-between">
+                            <span>Width</span>
+                            <span className="font-semibold">96 in</span>
+                          </div>
+                          <div className="mt-1 flex items-center justify-between">
+                            <span>Height</span>
+                            <span className="font-semibold">84 in</span>
+                          </div>
+                        </div>
+                        <div className="rounded-lg border border-white/10 bg-white/5 p-2">
+                          <div className="text-white/60">MATERIALS</div>
+                          <div className="mt-1">• Aluminum</div>
+                          <div className="mt-1">• 1 in Returns</div>
+                          <div className="mt-1">• 1/2 in Hem</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-white/10 bg-black px-4 py-3">
+                      <button className="flex w-full items-center justify-center gap-3 rounded-xl border border-[#f3c24f]/50 bg-[#241b0a] px-4 py-3 text-sm font-semibold text-[#f3c24f]">
+                        <Scan className="h-5 w-5" />
+                        NEXT
+                        <span className="text-[11px] font-normal text-white/60">Generate Bend Sheet</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute bottom-2 left-1/2 z-20 h-1.5 w-24 -translate-x-1/2 rounded-full bg-white/20" />
+              </div>
+            </div>
+
+            <div className="mt-6 text-center text-xs text-white/50" style={{ fontFamily: "var(--font-barlow)" }}>
+              BendPro mock layout based on concept handoff.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
